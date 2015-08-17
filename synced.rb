@@ -34,10 +34,10 @@ rsync_command = "rsync -a -p -u -v -v '#{source_dir}' '#{destination_dir}'"
 puts "\n#{rsync_command} will be run."
 puts "Are you sure you want to do this? (Y/N)"
 confirm = gets.chomp
-if !(confirm =~ /y.*$/i)
+if !(confirm =~ /^y(es)?$/i)
 	abort('Backup aborted')
 else
-	puts "\nBackup Starting ...\n\n"
+	puts "\nStarting rsync ...\n\n"
 	exec(rsync_command)
 end
 
